@@ -1,0 +1,186 @@
+\PassOptionsToPackage{subsection=false}{beamerouterthememiniframes}
+% the above removes the subsection bar
+
+\documentclass[11pt]{beamer}
+\usetheme{Amsterdam}
+%\usetheme{CEA}
+
+\usepackage{lmodern}
+\usepackage{multirow}
+
+\usepackage[T1]{fontenc}
+
+\usepackage[utf8]{inputenc}
+
+\usepackage{graphicx} 
+
+\usepackage{hyperref}
+
+\usepackage{tikz}
+\usetikzlibrary{patterns,arrows,shapes,decorations.pathmorphing}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{color}
+\newtheorem{thm}{Theorem}
+\newtheorem{cor}{Corollary}
+
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+%\usepackage{algorithm,algorithmic}
+
+\usepackage{xspace}
+\usepackage{hyperref}
+%\usepackage{qtree}
+
+\newcommand{\msl}{\{\hspace*{-0.1cm}|}
+\newcommand{\msr}{|\hspace*{-0.1cm}\}}
+
+\definecolor{olivegreen}{RGB}{85, 107, 47}
+\definecolor{purple}{RGB}{128, 0, 128}
+\definecolor{darkviolet}{RGB}{148, 0, 211}
+\newcommand{\mg}[1]{{\color{magenta} #1}}
+\newcommand{\cyan}[1]{{\color{cyan} #1}}
+\newcommand{\olive}[1]{{\color{darkviolet} #1}}
+\newcommand{\red}[1]{{\color{red} #1}}
+
+
+%\usepackage{cutwin}
+%\usepackage{caption}
+%\opencutright
+%
+%\usepackage{wrapfig}
+%
+
+\renewcommand{\algorithmiccomment}[1]{\hfill\  #1}
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+\renewcommand{\algorithmicensure}{\textbf{Output:}}
+
+
+\author{
+%\vspace{-2mm}
+CHARMET Fabien,
+T\'{e}l\'{e}com SudParis,
+Institut Mines-T\'{e}l\'{e}com, CNRS Samovar UMR 5157
+%, Evry, France
+\\
+MONTOYA Maxime,
+Univ. Grenoble Alpes, CEA, LETI, DACLE
+%Grenoble, France
+\\
+VALOIS Mathieu, Normandie Univ, UNICAEN, ENSICAEN, CNRS, GREYC
+%, 14000 Caen, France
+\\
+WIDE\L{} Wojciech, Univ Rennes, INSA Rennes, CNRS, IRISA
+%, Rennes, France
+\\
+\vspace{3mm}
+26 October 2018}
+\title{Enhancing public key infrastructure with blockchain}
+
+%\institute{institute/whatever}
+
+\date{}
+%\date{26 October 2018\\
+%\begin{center}
+%\begin{tabular}{l @{\hspace{20mm}} r}
+%\includegraphics[scale=0.14]{redocs_logo2}
+%&
+%\includegraphics[scale=0.14]{idnomicLogo} 
+%\end{tabular} 
+%\end{center}
+%}
+
+%pages enumeration
+\setbeamertemplate{footline}[text line]{%
+  \parbox{\linewidth}{\vspace*{-8pt}
+  REDOCS 2018 \hfill\insertframenumber / \inserttotalframenumber}}
+\setbeamertemplate{navigation symbols}{}
+
+
+%\addtobeamertemplate{frametitle}{\vskip-1.5ex}{}
+
+
+
+\AtBeginSection[]
+{
+  \begin{frame}<beamer>
+    %\frametitle{\textbf{Outline}}
+    \tableofcontents[currentsection]
+  \end{frame}
+}
+
+
+\begin{document}
+%\beamertemplatenavigationsymbolsempty
+%\maketitle
+
+\begin{frame}
+%\begin{center}
+%\begin{tabular}{l c c r}
+%\includegraphics[scale=0.14]{redocsFullColor} &  & & \includegraphics[scale=0.14]{idnomicLogo}\\ 
+%\end{tabular} 
+%\end{center}
+\titlepage
+\vspace{-19mm}
+\begin{center}
+\begin{tabular}{l @{\hspace{35mm}} r}
+\includegraphics[scale=0.14]{redocs_logo2}
+&
+\includegraphics[scale=0.14]{idnomicLogo} 
+\end{tabular} 
+\end{center}
+\end{frame}
+
+\begin{frame}
+titles:
+
+Blockchain-based enhancements of public key infrastructure
+
+Enhancing public key infrastructure with blockchain
+
+Improving PKI with blockchain
+
+or something else
+\end{frame}
+
+\begin{frame}{Outline}
+\tableofcontents
+\end{frame}
+
+\section[sec1]{Background on PKI and blockchains}
+
+\begin{frame}
+overview of PKI
+\end{frame}
+
+
+\section[sec2]{Possible applications of blockchains for enhancing PKI}
+
+
+\section[sec3]{Storing certificates and CRL on a blockchain ledger}
+
+\begin{frame}
+task: enhance PKI by storing certificates
+and CRL
+in a blokchain ledger
+
+describe the assumptions/threat model
+\end{frame}
+
+\subsection[subsec1]{Possible approaches}
+
+\begin{frame}
+frame
+\end{frame}
+
+\subsection[subsec2]{Our solution}
+
+\begin{frame}
+frame
+\end{frame}
+
+\section[sec4]{Demo}
+
+\end{document}
