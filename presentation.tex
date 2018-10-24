@@ -17,8 +17,30 @@
 \usepackage{hyperref}
 
 \usepackage{tikz}
-\usetikzlibrary{patterns,arrows,shapes,decorations.pathmorphing}
+\usetikzlibrary{patterns,calc,arrows,shapes,decorations.pathmorphing}
 
+
+% TEMPORARY:
+\pgfdeclarepatternformonly{lines}{\pgfpointorigin}{\pgfqpoint{100pt}{1pt}}{\pgfqpoint{100pt}{3pt}}%
+{
+  \pgfsetstrokeopacity{0.3}
+  \pgfsetlinewidth{0.1pt}
+  \pgfpathmoveto{\pgfqpoint{0pt}{0.5pt}}
+  \pgfpathlineto{\pgfqpoint{100pt}{0.5pt}}
+  \pgfusepath{stroke}
+}
+
+\pgfdeclarepatternformonly{cross}{\pgfqpoint{-1pt}{-1pt}}{\pgfqpoint{4pt}{4pt}}{\pgfqpoint{3pt}{3pt}}%
+{
+  \pgfsetstrokeopacity{0.3}
+  \pgfsetlinewidth{0.4pt}
+  \pgfpathmoveto{\pgfqpoint{3.1pt}{0pt}}
+  \pgfpathlineto{\pgfqpoint{0pt}{3.1pt}}
+  \pgfpathmoveto{\pgfqpoint{0pt}{0pt}}
+  \pgfpathlineto{\pgfqpoint{3.1pt}{3.1pt}}
+  \pgfusepath{stroke}
+}
+% TEMPORARY ENDS HERE
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
