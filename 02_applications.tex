@@ -1,5 +1,82 @@
 \section[sec2]{Possible applications of blockchains for enhancing PKI}
 
+%3 frames: attacks and issues, why blockchains can help, use cases
+
+%Notes: 
+%Ideas in IDnomic presentation
+%Background in paper
+	%DNS attacks on google.com
+	%Attacks on CA/PKI
+%Faster to access to CRL etc... 
+
+
 \begin{frame}
-frame
+\emph{Attacks on certificate authorities are a major threat for PKIs}
+
+\begin{itemize}
+\item Man-in-the-middle \emph{(MITM)} attacks
+\begin{itemize}
+\item Some have been performed by states (Iran, China) or intelligence agencies (NSA)
+\end{itemize}
+\item Genuine certificates authorities have been hacked
+\begin{itemize}
+\item False certificates were issued
+\end{itemize}
+\item Revoked certificates constitute a weakness
+\begin{itemize}
+\item Certificate revocation lists \emph{(CRLs)} are updated periodically, but not instantly when certificates are proved to be forged
+\item Checking the Certificate revocation lists \emph{(CRLs)} is a separate process that adds more queries and delays
+\item This process is not performed at all by some web browsers
+\end{itemize}
+\end{itemize}
+
+%https://www.eff.org/fr/deeplinks/2011/08/iranian-man-middle-attack-against-google
+%https://www.techdirt.com/articles/20140909/03424628458/china-using-man-in-the-middle-attack-against-google.shtml
+%https://www.netresec.com/?page=Blog&month=2014-09&post=Analysis-of-Chinese-MITM-on-Google
+%https://ieeexplore.ieee.org/document/6096548
+%http://www.ccs.neu.edu/home/amislove/publications/SSLClient-IMC.pdf
+
+\end{frame}
+
+\begin{frame}
+\emph{Blockchain has many advantages for PKIs}
+
+\begin{itemize}
+\item \textbf{Security} with more \textbf{transparency} and \textbf{traceability}
+\begin{itemize}
+\item Blockchain is a secure distributed log that cannot be altered
+\item The whole chain of trust is stored in the blockchain
+\item MITM attacks are prevented
+\end{itemize}
+\item \textbf{Faster} and \textbf{more secure} verification of revocations
+\begin{itemize}
+\item CRLs are updated instantaneously in the blockchain
+\item All CRLs for all CAs are stored at the same place
+\item One query to check both certificates and the CRL, which is always performed
+\end{itemize}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\emph{Use cases examples}
+
+
+\begin{itemize}
+\item Trusted domain names
+\begin{itemize}
+\item Privacy and confidentiality issue: are visited websites what they pretend to be ?
+\end{itemize}
+\item Trusted connected cars
+\begin{itemize}
+\item Safety issue: connected or even autonomous cars might need to check that the surrounding cars are legitimate
+\end{itemize}
+\end{itemize}
+
+\emph{In both cases, all certificates and CRLs would be stocked together in a blockchain.}
+
+
+
+
+
 \end{frame}
