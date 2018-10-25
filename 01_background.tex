@@ -254,7 +254,7 @@ process}.
 \end{frame}
 
 
-\begin{frame}{Blockchain structure}
+\begin{frame}{Blockchain structure \mg{toBeFinished}}
 
 \begin{center}
 \begin{tikzpicture}[mymatrix/.style={matrix of nodes, nodes=typetag, row sep=1em},
@@ -272,6 +272,30 @@ process}.
   
   
   \node[mycontainer, fit=(block)] {};
+
+%    up---dummy			dummy3  up2--
+%     |                          |
+%     |                          |
+%  --down dummy2		dummy4--down2
+
+% LHS
+
+  \node[below = of block.north west] (dummy) {};
+  \node[left = of dummy.west] (up) {};
+  \node[above = of block.south west] (dummy2) {};
+  \node[left = of dummy2.west] (down) {};
+  
+  \draw[-] (dummy) to (up.east);
+  \draw[-] (up.east) to (down.east);
+  
+% RHS
+  \node[below = of block.north east] (dummy3) {};
+  \node[right = of dummy3.east] (up2) {};
+  \node[above = of block.south east] (dummy4) {};
+  \node[right = of dummy4.east] (down2) {};
+  
+  \draw[-] (dummy4) to (down2.west);
+  \draw[-] (down2.west) to (up2.west);
   
 \end{tikzpicture}
 \end{center}
@@ -279,58 +303,58 @@ process}.
 \end{frame}
 
 
-\begin{frame}{Blockchain structure}
-
-\begin{center}
-\begin{tikzpicture}
-
-  \node[draw,rectangle,
-fill=white, label=below:{Genesis block}] (gb) {Block 0};
-
-  \node[draw,rectangle,
-fill=white, right = of gb] (b1) {Block 1};
-
-%  \node[right = of b1.east, label=below:{{\color{white} XX}...{\color{white} XX}}] (dots) {};
-
-  \node[right = of b1.east] (dots) {{\color{white} X}$\ldots${\color{white} X}};
-  
-    \node[draw,rectangle,
-fill=white, right = of dots] (bl) {Block $n$};
-
-  \node[right = of bl.east] (dummy) {};
-  
-  \node[above = of dummy.north] (dummy2) {};
-%  
- \node[below = of dummy.north] (dummy3) {};
-  
-\node[draw,rectangle,
-fill=white, right = of dummy2] (nb1) {Block?};
-
-\node[draw,rectangle,fill=white, right = of dummy3] (nb2) {Block???};
-
-%   \node[draw,rectangle,
-%fill=white, right = of bl.north east](nb1) {Block?};
+%\begin{frame}{Blockchain structure}
 %
-%   \node[draw,rectangle,
-%fill=white, right = of bl.south east](nb2) {Block???};
-  
-  
-  \draw [->] (gb) to (b1);
-  \draw [->] (b1) to (dots);
-  \draw [->] (dots) to (bl);
-  \draw [->] (bl) to (nb1);
-  \draw [->] (bl) to (nb2);
-  
-\end{tikzpicture}
-\end{center}
-
-\begin{itemize}
-\item sasa
-\item sese
-\item bzzz
-\end{itemize}
-
-\end{frame}
+%\begin{center}
+%\begin{tikzpicture}
+%
+%  \node[draw,rectangle,
+%fill=white, label=below:{Genesis block}] (gb) {Block 0};
+%
+%  \node[draw,rectangle,
+%fill=white, right = of gb] (b1) {Block 1};
+%
+%%  \node[right = of b1.east, label=below:{{\color{white} XX}...{\color{white} XX}}] (dots) {};
+%
+%  \node[right = of b1.east] (dots) {{\color{white} X}$\ldots${\color{white} X}};
+%  
+%    \node[draw,rectangle,
+%fill=white, right = of dots] (bl) {Block $n$};
+%
+%  \node[right = of bl.east] (dummy) {};
+%  
+%  \node[above = of dummy.north] (dummy2) {};
+%%  
+% \node[below = of dummy.north] (dummy3) {};
+%  
+%\node[draw,rectangle,
+%fill=white, right = of dummy2] (nb1) {Block?};
+%
+%\node[draw,rectangle,fill=white, right = of dummy3] (nb2) {Block???};
+%
+%%   \node[draw,rectangle,
+%%fill=white, right = of bl.north east](nb1) {Block?};
+%%
+%%   \node[draw,rectangle,
+%%fill=white, right = of bl.south east](nb2) {Block???};
+%  
+%  
+%  \draw [->] (gb) to (b1);
+%  \draw [->] (b1) to (dots);
+%  \draw [->] (dots) to (bl);
+%  \draw [->] (bl) to (nb1);
+%  \draw [->] (bl) to (nb2);
+%  
+%\end{tikzpicture}
+%\end{center}
+%
+%\begin{itemize}
+%\item sasa
+%\item sese
+%\item bzzz
+%\end{itemize}
+%
+%\end{frame}
 
 
 
