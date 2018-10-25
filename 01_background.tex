@@ -79,7 +79,6 @@ and procedures
 ensuring
 secure distribution of public keys.
 \item Based on \textbf{digital certificates}.
-\item \mg{anything to add?}
 \end{itemize}
 \end{exampleblock}
 
@@ -226,61 +225,70 @@ is indeed the public key of the entity E.
 
 \begin{frame}{Public key infrastructure}
 
-\begin{alertblock}{Alert}
+\begin{alertblock}{Single point of failure}
 \begin{itemize}
-\item yo
+\item Corrupt CA $=$ illegitimate
+certificates.
+\item Single CA corrupt $=$ PKI's failure.
+%\item Corruption of a single CA implies
+%failure of PKI.
 \end{itemize}
 \end{alertblock}
 
 \pause
 
-\begin{exampleblock}{Solution}
+\begin{exampleblock}{Possible countermeasure}
 \begin{itemize}
-\item blockchain
+\item Store certificates and CRL
+in an external ledger.
+\item What kind of ledger?
 \end{itemize}
 \end{exampleblock}
 
 \end{frame}
 
 
-\begin{frame}{Blockchain definition}
+\begin{frame}{Blockchain}
 
+\begin{exampleblock}{Definition}
 \begin{itemize}
-\item \mg{Blockchain}: a public, transparent,
+\item A public, transparent,
 append-only ledger.
 %\pause
 \item Created by members of a peer-to-peer
 network.
-\item Immutable and unforgeable records (\mg{blocks}).
+\item Immutable and unforgeable records (\textbf{blocks}).
 %Records \mg{blocks} stored in the ledger are immutable
 %and unforgeable
 %\item FunFactHere?
 \end{itemize}
+\end{exampleblock}
 
 \end{frame}
 
+
+
+\begin{frame}{Blockchain}
+
+\begin{exampleblock}{Structure}
+\begin{itemize}
+\item \textbf{Transaction}: atomic event
+allowed by the blockchain protocol (`Alice sends Bob $0.1$ BTC', `CA issues a certificate').
+\item Transactions are \textbf{validated} and \textbf{broadcasted}
+throughout the network.
+\item Validated transactions are
+stored in \textbf{blocks}.
+\item Blocks are linked together,
+forming a \textbf{chain}.
+\item The choice of the next blocks to be
+added to the chain is a result of a \textbf{consensus process}.
+\end{itemize}
+\end{exampleblock}
+
+\end{frame}
 
 
 \begin{frame}{Blockchain structure}
-
-\begin{itemize}
-\item \mg{Transaction}: atomic event
-allowed by the blockchain protocol (`Alice sends Bob $0.1$ BTC', `CA issues a certificate').
-\item Transactions are \mg{validated} and \mg{broadcasted}
-throughout the network.
-\item Validated transactions are
-stored in \mg{blocks}.
-\item Blocks are linked together,
-forming a \mg{chain}.
-\item The choice of the next blocks to be
-added to the chain is a result of a \mg{consensus
-process}.
-\end{itemize}
-
-\end{frame}
-
-
-\begin{frame}{Blockchain structure \mg{toBeFinished}}
 
 \begin{center}
 \begin{tikzpicture}[mymatrix/.style={matrix of nodes, nodes=typetag, row sep=1em},
@@ -290,8 +298,8 @@ process}.
   ]
   \matrix[mymatrix] (block) {
     |[title]|Block\\
-    hash of the last block\\
-    creator's of the block (\mg{miner}) ID\\
+    hash of the previous block\\
+    creator's of the block (\textbf{miner}) ID\\
     set of transactions\\
     ...\\
   };
@@ -299,10 +307,10 @@ process}.
   
   \node[mycontainer, fit=(block)] {};
 
-%    up---dummy			dummy3  up2--
-%     |                          |
-%     |                          |
-%  --down dummy2		dummy4--down2
+%              up---dummy			dummy3  up2--
+%               |                          |
+%               |                          |
+%  dumll-duml--down dummy2		dummy4--down2
 
 % LHS
 
@@ -314,6 +322,12 @@ process}.
   \draw[-] (dummy) to (up.east);
   \draw[-] (up.east) to (down.east);
   
+  \node[left = of dummy2.west] (duml) {};
+  \node[left = of duml.west] (dumll) {};
+  
+  \draw[-] (dumll.west) to (down.east)  {};
+  
+  
 % RHS
   \node[below = of block.north east] (dummy3) {};
   \node[right = of dummy3.east] (up2) {};
@@ -323,9 +337,24 @@ process}.
   \draw[-] (dummy4) to (down2.west);
   \draw[-] (down2.west) to (up2.west);
   
+  \node[right = of up2.east] (dumnono) {};
+%  \node[right = of dumnono.east] (bzzz) {};
+  \draw[-] (up2.west) to (dumnono.east);
+  
 \end{tikzpicture}
 \end{center}
 
+\end{frame}
+
+
+\begin{frame}{Scenario}
+	\begin{exampleblock}{End user scenario}
+		\begin{enumerate}
+			\item connects to a website
+			\item browser verifies identity of webserver using PKI
+			\item web extension verifies identity of webserver using Blockchain
+		\end{enumerate}
+	\end{exampleblock}
 \end{frame}
 
 

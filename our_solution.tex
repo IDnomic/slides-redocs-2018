@@ -45,27 +45,15 @@
 \end{frame}
 
 \begin{frame}
-	\frametitle{Our solution}
-	\begin{exampleblock}{Network structure}
-		\begin{itemize}
-			\item everyone can be a node and read the Blockchain
-			\item 1 CA = 1 Miner
-			\item mining is a privilege
-			\item each issued certificate is pushed to the Blockchain by a miner
-		\end{itemize}
-	\end{exampleblock}
-\end{frame}
-
-\begin{frame}
-	\frametitle{Our solution}
-	\begin{alertblock}{Scenario}
-		\begin{itemize}
+	\frametitle{Scenario}
+	\begin{alertblock}{}
+		\begin{enumerate}
 			\item final user visits a website with web browser
-			\item TLS protocol applied on the connexion
+			\item classical identity verification is used (PKI)
 			\item browser plug-in installed on the user browser
 			\item local daemon is running, waiting for queries
-			\item it retrieves certificates, asking to daemon if such a certificate is valid
+			\item plugin-in retrieves certificates, asking to daemon if such a certificate is valid
 			\item displays whether certificates should be trusted or not
-		\end{itemize}
+		\end{enumerate}
 	\end{alertblock}
 \end{frame}
