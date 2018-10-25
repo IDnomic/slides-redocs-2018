@@ -2,7 +2,7 @@
 % the above removes the subsection bar
 
 \documentclass[11pt, aspectratio=169]{beamer}
-\usetheme{Amsterdam}
+\usetheme{metropolis}
 \setbeamercolor{subsection in head/foot}{fg=White}
 %\usetheme{CEA}
 
@@ -115,31 +115,6 @@ Wojciech Wide\l{} & Univ Rennes, INSA Rennes, CNRS, IRISA\\
 \end{frame}
 
 
-\begin{frame}{Context}
-
-\begin{itemize}
-\item Goal
-\begin{itemize}
-\item Enhancing the trust inside a PKI by adding a verification layer.
-\item End users can verify certificate in the blockchain.
-\item Separate chain of trust.
-\end{itemize}
-\item Prerequisites
-\begin{itemize}
-\item Private blockchain.
-\item Private miners.
-\item Permission-based transactions.
-\end{itemize}
-\item Threat model: the attacker can either
-\begin{itemize}
-\item compromise the CA and generate legitimate certificates, or
-\item compromise a node in the blockchain to insert transactions.
-\end{itemize}
-\end{itemize}
-
-\end{frame}
-
-
 \begin{frame}{Outline}
 \tableofcontents
 \end{frame}
@@ -158,6 +133,8 @@ Wojciech Wide\l{} & Univ Rennes, INSA Rennes, CNRS, IRISA\\
 \input{our_solution}
 
 \input{04_demo}
+
+\input{conclusion}
 
 
 \end{document}
