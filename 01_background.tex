@@ -79,7 +79,6 @@ and procedures
 ensuring
 secure distribution of public keys.
 \item Based on \textbf{digital certificates}.
-\item \mg{anything to add?}
 \end{itemize}
 \end{exampleblock}
 
@@ -226,17 +225,23 @@ is indeed the public key of the entity E.
 
 \begin{frame}{Public key infrastructure}
 
-\begin{alertblock}{Alert}
+\begin{alertblock}{Single point of failure}
 \begin{itemize}
-\item yo
+\item Corrupt CA $=$ illegitimate
+certificates.
+\item Single CA corrupt $=$ PKI's failure.
+%\item Corruption of a single CA implies
+%failure of PKI.
 \end{itemize}
 \end{alertblock}
 
 \pause
 
-\begin{exampleblock}{Solution}
+\begin{exampleblock}{Possible countermeasure}
 \begin{itemize}
-\item blockchain
+\item Store certificates and CRL
+in an external ledger.
+\item What kind of ledger?
 \end{itemize}
 \end{exampleblock}
 
@@ -257,6 +262,7 @@ network.
 %and unforgeable
 %\item FunFactHere?
 \end{itemize}
+\end{exampleblock}
 
 \end{frame}
 
@@ -282,7 +288,7 @@ added to the chain is a result of a \textbf{consensus process}.
 \end{frame}
 
 
-\begin{frame}{Blockchain structure \mg{toBeFinished}}
+\begin{frame}{Blockchain structure}
 
 \begin{center}
 \begin{tikzpicture}[mymatrix/.style={matrix of nodes, nodes=typetag, row sep=1em},
@@ -292,8 +298,8 @@ added to the chain is a result of a \textbf{consensus process}.
   ]
   \matrix[mymatrix] (block) {
     |[title]|Block\\
-    hash of the last block\\
-    creator's of the block (\mg{miner}) ID\\
+    hash of the previous block\\
+    creator's of the block (\textbf{miner}) ID\\
     set of transactions\\
     ...\\
   };
@@ -301,10 +307,10 @@ added to the chain is a result of a \textbf{consensus process}.
   
   \node[mycontainer, fit=(block)] {};
 
-%    up---dummy			dummy3  up2--
-%     |                          |
-%     |                          |
-%  --down dummy2		dummy4--down2
+%        up---dummy			dummy3  up2--
+%         |                          |
+%         |                          |
+%  duml--down dummy2		dummy4--down2
 
 % LHS
 
@@ -317,6 +323,9 @@ added to the chain is a result of a \textbf{consensus process}.
   \draw[-] (up.east) to (down.east);
   
   \node[left = of dummy2.west] (duml) {};
+  \node[left = of duml.west] (dumll) {};
+  
+  \draw[-] (dumll.west) to (down.east)  {};
   
   
 % RHS
@@ -331,6 +340,10 @@ added to the chain is a result of a \textbf{consensus process}.
 \end{tikzpicture}
 \end{center}
 
+\end{frame}
+
+\begin{frame}{\mg{todo}}
+scenario?
 \end{frame}
 
 
