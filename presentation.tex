@@ -3,6 +3,7 @@
 
 \documentclass[11pt]{beamer}
 \usetheme{Amsterdam}
+\setbeamercolor{subsection in head/foot}{fg=White}
 %\usetheme{CEA}
 
 \usepackage{lmodern}
@@ -14,7 +15,7 @@
 
 \usepackage{graphicx} 
 
-\usepackage{hyperref}
+%\usepackage{hyperref}
 
 \usepackage{tikz}
 \usetikzlibrary{positioning,patterns,matrix,calc,arrows,shapes,fit,decorations.pathmorphing}
@@ -29,11 +30,9 @@
 
 \usepackage{algorithm}
 \usepackage{algpseudocode}
-%\usepackage{algorithm,algorithmic}
 
 \usepackage{xspace}
 \usepackage{hyperref}
-%\usepackage{qtree}
 
 \newcommand{\msl}{\{\hspace*{-0.1cm}|}
 \newcommand{\msr}{|\hspace*{-0.1cm}\}}
@@ -47,13 +46,6 @@
 \newcommand{\red}[1]{{\color{red} #1}}
 
 
-%\usepackage{cutwin}
-%\usepackage{caption}
-%\opencutright
-%
-%\usepackage{wrapfig}
-%
-
 \renewcommand{\algorithmiccomment}[1]{\hfill\  #1}
 \renewcommand{\algorithmicrequire}{\textbf{Input:}}
 \renewcommand{\algorithmicensure}{\textbf{Output:}}
@@ -65,15 +57,6 @@
 %\institute{institute/whatever}
 
 \date{}
-%\date{26 October 2018\\
-%\begin{center}
-%\begin{tabular}{l @{\hspace{20mm}} r}
-%\includegraphics[scale=0.14]{redocs_logo2}
-%&
-%\includegraphics[scale=0.14]{idnomicLogo} 
-%\end{tabular} 
-%\end{center}
-%}
 
 %pages enumeration
 \setbeamertemplate{footline}[text line]{%
@@ -89,13 +72,13 @@
 \AtBeginSection[]
 {
   \begin{frame}<beamer>
-    %\frametitle{\textbf{Outline}}
     \tableofcontents[currentsection]
   \end{frame}
 }
 
-
+\beamertemplatenavigationsymbolsempty
 \begin{document}
+%\beamertemplatenavigationsymbolsempty
 
 \author{%
 \begin{tabular}{rl}
@@ -110,15 +93,11 @@ Wojciech Wide\l{} & Univ Rennes, INSA Rennes, CNRS, IRISA\\
 \center
 26 October 2018}
 
-%\beamertemplatenavigationsymbolsempty
+
 %\maketitle
 
 \begin{frame}
-%\begin{center}
-%\begin{tabular}{l c c r}
-%\includegraphics[scale=0.14]{redocsFullColor} &  & & \includegraphics[scale=0.14]{idnomicLogo}\\ 
-%\end{tabular} 
-%\end{center}
+
 \titlepage
 
 \vspace{-19mm}
