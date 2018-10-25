@@ -1,50 +1,35 @@
 \section[Blockchains for PKI]{How blockchains could enhance PKI}
 
-\begin{frame}{Blockchain and Man-in-the-middle attacks}
-	\begin{alertblock}{Attacks}
+\begin{frame}{PKI}
+	\begin{alertblock}{Issues}
 		\begin{itemize}
-			\item Hack of genuine certification authorities
+			\item No way to know if CA is corrupted
 			\item CA producing certificates for domains they don't own (Iran with Google)
+			\item some web browsers don't check for certification revocation
 		\end{itemize}
 	\end{alertblock}
 
 	\begin{exampleblock}{Blockchain}
 		\begin{itemize}
-			\item \mg{transparency} and \mg{traceability}
+			\item adds another channel to check for certificate validity
+			\item \textbf{transparency} and \textbf{traceability}
 			\item Secure distributed log that cannot be altered
 			\item The whole chain of trust is stored
+			\item revocation lists are all stored in the same place
 		\end{itemize}
 	\end{exampleblock}
 \end{frame}
 
-\begin{frame}{Blockchain and Certificate Revocation Lists}
-	\begin{alertblock}{Current issues}
-		\begin{itemize}
-%			\item Updated periodically but not instantly
-			\item Separated process to check CRLs for end users: adds delays, and is not performed at all by some web browsers
-		\end{itemize}
-	\end{alertblock}
+\begin{frame}{Applications}
 
-	\begin{exampleblock}{Blockchain solution}
-%		\mg{Faster} and \mg{more secure} verification of revocations
+	\begin{exampleblock}{Web browsing}
 		\begin{itemize}
-%			\item CRLs are updated instantaneously
-			\item All CRLs stored at the same place
-			\item CRLs checked together with certificates in one single query
-		\end{itemize}
-	\end{exampleblock}
-\end{frame}
-
-\begin{frame}{Examples of applications of blockchains to PKIs}
-
-	\begin{exampleblock}{Trusted domain names}
-		\begin{itemize}
-			\item Privacy and confidentiality issue: are visited websites what they pretend to be ?
+			\item Privacy and confidentiality issue: are visited websites what they pretend to be?
 			\item Millions of certificates, with variable lifetime
 		\end{itemize}
 	\end{exampleblock}
 	
-	\begin{alertblock}{Trusted connected cars}
+	\begin{alertblock}{Connected cars}
 		\begin{itemize}
 			\item Safety issue: connected or even autonomous cars might need to check that the surrounding cars are legitimate
 			\item Thousands of certificates, with a one-week lifetime
