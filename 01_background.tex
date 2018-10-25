@@ -2,7 +2,66 @@
 
 
 \begin{frame}{Public-key encryption}
-public key encryption
+\begin{center}
+\begin{tikzpicture}
+[node distance=2cm and 0.5cm]
+% 'd' for dummies
+% upper level: r  sk  d pk d5
+% lower level: d2 d3 ct d4 pt s
+
+% lower
+\node[label=above:{Recipient}](r) {{\LARGE \faUser}};
+
+\node[right = of r.east] (d3) {decrypt};
+
+\node[right = of d3.east, label=below:{ciphertext}] (ct) {{\Huge \faFileText}};
+
+\node[right = of ct.east] (d4) {encrypt};
+
+\node[right = of d4.east, label=below:{plaintext}] (pt) {{\Huge \faFileTextO}};
+
+\node[right = of pt.east, label=above:{Sender}](s) {{\LARGE \faUser}};
+
+% upper
+
+\node[above = of d3.north, label=above: {secret key}] (sk) {{\Huge \red{\faKey}}};
+
+\node[above = of d4.north, label=above: {public key}] (pk) {{\Huge \olive{\faKey}}};
+
+
+%\node[](r) {Recipient:};
+%
+%\node[right = of r.east, label=above: {secret key}] (sk) {{\Huge \red{\faKey}}};
+%
+%\node[right = of sk.east] (d) {};
+%
+%\node[right = of d.east, label=above: {public key}] (pk) {{\Huge \olive{\faKey}}};
+%
+%\node[right = of pk.east] (d5) {};
+
+%horizontal upper
+%\draw[->] (r) to (sk);
+
+%vertical
+\draw[->] (pk) to (d4);
+\draw[->] (sk) to (d3);
+%\draw[->] (d2) to (r);
+
+%horizontal lower
+\draw[-] (s) to (pt);
+\draw[-] (pt) to (d4);
+\draw[->] (d4) to (ct);
+\draw[-] (ct) to (d3);
+\draw[->] (d3) to (r);
+
+\end{tikzpicture}
+\end{center}
+
+%{\large test test}
+%
+%{\LARGE test test}
+%
+%{\LARGE \faKey}
 \end{frame}
 
 \begin{frame}{Public key infrastructure}
@@ -221,6 +280,6 @@ fill=white, right = of bl.south east](nb2) {Block???};
 \end{tikzpicture}
 \end{center}
 
-ugly
+ugly, to be modified
 
 \end{frame}
