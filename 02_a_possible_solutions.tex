@@ -3,13 +3,17 @@
 
 %% TODO: move this slide to the Background section
 
-\begin{frame}{Smart contracts}
+\begin{frame}{Blockchain and smart contracts}
 
-	\begin{exampleblock}{Ethereum smart contracts\footnote{A. Yakubov et al., "A blockchain-based PKI management framework," NOMS 2018 - IEEE/IFIP Network Operations and Management Symposium, Taipei, 2018, pp. 1-6.}}
+	\begin{exampleblock}{Smart contracts in Ethereum}
 		\begin{itemize}
-			\item Based on the Ethereum blockchain
-			\item Each certification authority has \textbf{smart contracts} that store a list of issued certificates and a revocation list
-			\item Specific format for certificates: \textbf{hybrid certificates}
+			\item Ethereum is a blockchain that supports \textbf{smart contracts}
+			\item Smart contracts are special entities, written in the blockchain
+			\begin{itemize}
+				\item Execution conditions predefined and agreed on 
+				\item Execute when these conditions are met
+				\item Each transaction with a smart contract is a transaction in the blockchain
+			\end{itemize}
 		\end{itemize}
 	\end{exampleblock}
 
@@ -17,17 +21,40 @@
 
 
 
-\begin{frame}{Existing approaches}
-
-	\begin{exampleblock}{Ethereum smart contracts\footnote{A. Yakubov et al., "A blockchain-based PKI management framework," NOMS 2018 - IEEE/IFIP Network Operations and Management Symposium, Taipei, 2018, pp. 1-6.}}
+\begin{frame}{Existing approaches\footnote{A. Yakubov et al., "A blockchain-based PKI management framework," NOMS 2018 - IEEE/IFIP Network Operations and Management Symposium, Taipei, 2018, pp. 1-6.}}
+\begin{columns}
+\begin{column}{0.48\textwidth}
+	\begin{exampleblock}{Ethereum smart contracts}
+%	\begin{exampleblock}{Ethereum smart contracts}
 		\begin{itemize}
-			\item Based on the Ethereum blockchain
 			\item Each certification authority has \textbf{smart contracts} that store a list of issued certificates and a revocation list
 			\item Specific format for certificates: \textbf{hybrid certificates}
 		\end{itemize}
 	\end{exampleblock}
-
+\end{column}
+\begin{column}{0.48\textwidth}
+	\begin{center}
+		\includegraphics[scale=0.2]{figs/article_pki_blockchain.png}
+	\end{center}
+\end{column}
+\end{columns}
 \end{frame}
+
+
+%\begin{frame}{Existing approaches}
+%
+%	\begin{exampleblock}{Ethereum smart contracts\footnote{A. Yakubov et al., "A blockchain-based PKI management framework," NOMS 2018 - IEEE/IFIP Network Operations and Management Symposium, Taipei, 2018, pp. 1-6.}}
+%		\begin{itemize}
+%			\item Each certification authority has \textbf{smart contracts} that store a list of issued certificates and a revocation list
+%			\item Specific format for certificates: \textbf{hybrid certificates}
+%		\end{itemize}
+%	\end{exampleblock}
+%	
+%	\begin{center}
+%		\includegraphics[scale=0.3]{figs/article_pki_blockchain.png}
+%	\end{center}
+%
+%\end{frame}
 
 \begin{frame}{Existing approaches}
 	\begin{exampleblock}{Data fields in Bitcoin-based blockchains}
@@ -71,102 +98,30 @@ Scalability & + & - & - \\
 
 
 
+%% TODO: move this slide to another section
 
+\begin{frame}{Cost and scalability}
 
+	\begin{exampleblock}{Use case: Let's Encrypt}
+		\begin{itemize}
+			\item Certification authority
+			\item Delivered 100M certificates over 20 months
+			\begin{itemize}
+				\item More than 160K per day
+			\end{itemize}
+		\end{itemize}
+	\end{exampleblock}
+	
+	\begin{exampleblock}{Application to multichain-based certificates management}
+		\begin{itemize}
+			\item Around 280 Go of memory for 100M certificates
+			\item The whole blockchain has to be read when searching for a specific certificate
+			\begin{itemize}
+				\item Ideally, nly the delivery day would have to be checked in the blockchain
+			\end{itemize}
+		\end{itemize}
+	\end{exampleblock}
 
-
-
-
-
-
-
-
-
-
-%\begin{frame}{Possible solutions}
-%
-%	\begin{exampleblock}{Data fields in Bitcoin-based blockchains}
-%		\begin{itemize}
-%			\item \textbf{OP\_RETURN} field that can contain data
-%			\item Several blockchains could be used, such as Bitcoin or Namecoin
-%		\end{itemize}
-%	\end{exampleblock}
-%
-%\end{frame}
-
-%\begin{frame}
-%
-%\begin{itemize}
-%\item Based on the Ethereum blockchain
-%\item Each certification authority (CA) has \mg{smart contracts} that store a list of issued certificates and a revocation list
-%\item Specific format for certificates: \mg{hybrid certificates}
-%%\vspace{2mm}
-%\item Pros:
-%\begin{itemize}
-%\item Scalability: No size limit, no need to scroll the whole blockchain
-%\end{itemize}
-%\item Cons:
-%\begin{itemize}
-%\item Hard to use and to modify, not generic
-%\item Hybrid certificates
-%\item Transaction fees
-%\end{itemize}
-%
-%\end{itemize}
-%
-%%\begin{center}
-%%\includegraphics{figs/article_pki_blockchain.png}
-%%\end{center}
-%
-%\end{frame}
-%
-%
-%
-%\begin{frame}{Data fields in Bitcoin-based blockchains}
-%
-%\begin{itemize}
-%\item \mg{OP\_RETURN} field that can contain data
-%\item Several blockchains could be used, such as Bitcoin or Namecoin
-%%\vspace{2mm}
-%\item Pros:
-%\begin{itemize}
-%\item Easy to implement, no hard fork required
-%\end{itemize}
-%\item Cons:
-%\begin{itemize}
-%\item No permissions: anyone can mine
-%\item Bitcoin: small size of the field (80 bytes), only fingerprints of certificates
-%\item Transaction fees
-%\item No easy revocation protocol
-%\item Burns bitcoins: they might not be used afterwards
-%\item The whole blockchain has to be read each time
-%\end{itemize}
-%
-%\end{itemize}
-%
-%\end{frame}
-%
-
-%
-%\begin{frame}{New blockchain}
-%\emph{here we describe the main points of our solution}
-%
-%\begin{itemize}
-%\item Creation of a new blockchain with the \mg{Multichain} tool
-%\item Pros:
-%\begin{itemize}
-%\item Very customizable
-%\item Free transactions
-%\item Data of any length
-%\item Permission management
-%\end{itemize}
-%\item Cons:
-%\begin{itemize}
-%\item None :)
-%\end{itemize}
-%
-%
-%\end{itemize}
-%\end{frame}
+\end{frame}
 
 
