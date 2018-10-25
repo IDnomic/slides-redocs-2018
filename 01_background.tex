@@ -66,15 +66,22 @@
 
 \begin{frame}{Public key infrastructure}
 
+\begin{exampleblock}{Public key infrastructure (PKI)}
 \begin{itemize}
-\item \mg{Public key infrastructure (PKI)}: a set of roles, policies, and procedures needed to
+\item 
+%\textbf{Public key infrastructure (PKI)}:
+A set of roles
+%, policies,
+and procedures
+%needed to
 %create, manage, distribute, use, store, and revoke
 %digital certificates and manage public-key encryption.
-ensure
+ensuring
 secure distribution of public keys.
-\item Based on digital certificates.
+\item Based on \textbf{digital certificates}.
+\item \mg{anything to add?}
 \end{itemize}
-
+\end{exampleblock}
 
 %'digital certificate = signature
 %binding an entity to some public key'
@@ -90,8 +97,52 @@ secure distribution of public keys.
 
 \end{frame}
 
+\begin{frame}{Digital certificate}
+%based on https://tex.stackexchange.com/a/8935
+\begin{center}
+\begin{tikzpicture}[mymatrix/.style={matrix of nodes, nodes=typetag, row sep=1em},
+  mycontainer/.style={draw=gray, inner sep=1ex},
+  typetag/.style={draw=gray, inner sep=1ex, anchor=west},
+  title/.style={draw=none, color=gray, inner sep=0pt}
+  ]
+  \matrix[mymatrix] (user) {
+    |[title]|Entity's data (ED)\\
+    unique identifier\\
+    public key $\mathtt{pk}_{\mathtt{E}}$ \\
+    ... \\
+  };
+  
+  \node[right=of user.east] (fake) {};
+  
+  \node[above = of fake] (fakeN) {$\mathtt{sk}_{\mathtt{CA}}$};
+  
+  \node[draw,rectangle,
+fill=white, above = of fakeN](ca) {Certificate authority (CA)};
+  
+    \matrix[mymatrix, right=of fake.east, matrix anchor=west] (cert) {
+    |[title]|Digital certificate\\
+    CA's identifier\\
+    $\mathtt{Sign}_{\mathtt{sk}_{\mathtt{CA}}}($ED$)$\\
+    ...\\
+  };
+  
+  \node[mycontainer, fit=(user)] {};
+  \node[mycontainer, fit=(cert)] {};
+  \draw [->] (user) to (cert);
+  \draw [-] (ca) to (fakeN);
+  \draw [->] (fakeN) to (fake);
+  
+\end{tikzpicture}
+\end{center}
 
-\begin{frame}{Chain of trust}
+\begin{center}
+CA certifies: $\mathtt{pk}_{\mathtt{E}}$
+is indeed the public key of the entity E.
+\end{center}
+\end{frame}
+
+
+\begin{frame}{Chain of trust \mg{TODO}}
 \begin{center}
 %\scalebox{0.9}{
 \begin{tikzpicture}
@@ -159,61 +210,36 @@ secure distribution of public keys.
 \end{frame}
 
 
-\begin{frame}{Digital certificate}
-%based on https://tex.stackexchange.com/a/8935
-\begin{center}
-\begin{tikzpicture}[mymatrix/.style={matrix of nodes, nodes=typetag, row sep=1em},
-  mycontainer/.style={draw=gray, inner sep=1ex},
-  typetag/.style={draw=gray, inner sep=1ex, anchor=west},
-  title/.style={draw=none, color=gray, inner sep=0pt}
-  ]
-  \matrix[mymatrix] (user) {
-    |[title]|Entity's data (ED)\\
-    unique identifier\\
-    public key $\mathtt{pk}_{\mathtt{E}}$ \\
-    ... \\
-  };
-  
-  \node[right=of user.east] (fake) {};
-  
-  \node[above = of fake] (fakeN) {$\mathtt{sk}_{\mathtt{CA}}$};
-  
-  \node[draw,rectangle,
-fill=white, above = of fakeN](ca) {Certificate authority (CA)};
-  
-    \matrix[mymatrix, right=of fake.east, matrix anchor=west] (cert) {
-    |[title]|Digital certificate\\
-    CA's identifier\\
-    $\mathtt{Sign}_{\mathtt{sk}_{\mathtt{CA}}}($ED$)$\\
-    ...\\
-  };
-  
-  \node[mycontainer, fit=(user)] {};
-  \node[mycontainer, fit=(cert)] {};
-  \draw [->] (user) to (cert);
-  \draw [-] (ca) to (fakeN);
-  \draw [->] (fakeN) to (fake);
-  
-\end{tikzpicture}
-\end{center}
 
-\begin{center}
-CA certifies: $\mathtt{pk}_{\mathtt{E}}$
-is indeed the public key of the entity E.
-\end{center}
-\end{frame}
-
-
-\begin{frame}{Revocation of certificates}
-
+\begin{frame}{Public key infrastructure}
+\begin{exampleblock}{Revocation of certificates}
 \begin{itemize}
-\item Compromised/expired certificates are
-\mg{revoked} by the issuing CA.
+\item Compromised certificates are
+\textbf{revoked} by the issuing CA.
 \item CA adds revoked certificates to its
-\mg{certificate revocation list (CRL)}.
+\textbf{certificate revocation list (CRL)}.
 \item CA publishes updated CRL
 \textasciitilde every 24 hours.
 \end{itemize}
+\end{exampleblock}
+\end{frame}
+
+\begin{frame}{Public key infrastructure}
+
+\begin{alertblock}{Alert}
+\begin{itemize}
+\item yo
+\end{itemize}
+\end{alertblock}
+
+\pause
+
+\begin{exampleblock}{Solution}
+\begin{itemize}
+\item blockchain
+\end{itemize}
+\end{exampleblock}
+
 \end{frame}
 
 
@@ -301,6 +327,9 @@ process}.
 \end{center}
 
 \end{frame}
+
+
+
 
 
 %\begin{frame}{Blockchain structure}
