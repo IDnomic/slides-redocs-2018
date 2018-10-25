@@ -91,6 +91,52 @@ secure distribution of public keys
 \end{frame}
 
 
+\begin{frame}{Chain of trust}
+\scalebox{0.9}{
+\begin{tikzpicture}
+
+\node (root) [shape=rectangle,draw,label=above:{Root CA}] {
+            \begin{tabular}{c}
+                Root CA's name\\
+                \hline
+                Root CA's public key\\
+                \hline
+                Root CA's signature\\
+            \end{tabular}
+        };
+        
+\node (int) [shape=rectangle,draw,below=of root.south east,label=above:{Intermediate CA}] {
+            \begin{tabular}{c}
+                Int. CA's name\\
+                \hline
+                Int. CA's public key\\
+                \hline
+                Issuer's name (Root CA)\\
+                \hline
+                Issuer's signature\\
+            \end{tabular}
+        };
+        
+\node (end) [shape=rectangle,draw,right=of int.south east,label=above:{End-entity CA}] {
+            \begin{tabular}{c}
+                Owner's name\\
+                \hline
+                Owner's public key\\
+                \hline
+                Issuer's name (Int. CA)\\
+                \hline
+                Issuer's signature\\
+            \end{tabular}
+        };        
+        
+\draw[->] (root.south east) to (int.north east);
+
+\end{tikzpicture}
+} %scalebox ends here
+
+\end{frame}
+
+
 \begin{frame}{Digital certificate}
 %based on https://tex.stackexchange.com/a/8935
 \begin{center}
@@ -136,16 +182,44 @@ is indeed the public key of the entity
 \end{frame}
 
 
-\begin{frame}{Chain of trust}
+%\begin{frame}{Chain of trust}
 
 %\begin{tikzpicture}
 %\node[\draw  (-6,6) rectangle (-2,2)] {no elo};
 %\draw (-6,5) -- (-2,5) -- (-2,4) -- (-6,4) -- (-6,3) -- (-2,3);
 %\node at (-5.5,5.5) {};
 %\end{tikzpicture}
-heh
 
-\end{frame}
+%\begin{center}
+%\begin{tikzpicture}[mymatrix/.style={matrix of nodes, nodes=typetag, row sep=1em},
+%  mycontainer/.style={draw=gray, inner sep=1ex},
+%  typetag/.style={draw=gray, inner sep=1ex, anchor=west},
+%  title/.style={draw=none, color=gray, inner sep=0pt}
+%  ]
+%  \matrix[mymatrix] (user) {
+%    |[title]|Root CA\\
+%    Root CA's name\\
+%    Root CA's public key\\
+%    Root CA's signature\\
+%  };
+%  
+%    \matrix[mymatrix, right=of fake.east, matrix anchor=west] (cert) {
+%    |[title]|Root CA\\
+%    Root CA's name\\
+%    Root CA's public key\\
+%    Root CA's signature\\
+%  };
+%  
+%  \node[mycontainer, fit=(user)] {};
+%  \node[mycontainer, fit=(cert)] {};
+%  
+%\end{tikzpicture}
+%\end{center}
+%\end{frame}
+
+
+
+
 
 \begin{frame}
 
