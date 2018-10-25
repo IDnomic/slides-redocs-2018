@@ -71,8 +71,8 @@
 %create, manage, distribute, use, store, and revoke
 %digital certificates and manage public-key encryption.
 ensure
-secure distribution of public keys
-\item Based on digital certificates
+secure distribution of public keys.
+\item Based on digital certificates.
 \end{itemize}
 
 
@@ -199,15 +199,21 @@ fill=white, above = of fakeN](ca) {Certificate authority (CA)};
 
 \begin{center}
 CA certifies: $\mathtt{pk}_{\mathtt{E}}$
-is indeed the public key of the entity
+is indeed the public key of the entity.
 \end{center}
 \end{frame}
 
 
 \begin{frame}{Revocation of certificates}
 
-revocation of certificates
-
+\begin{itemize}
+\item Compromised/expired certificates are
+\mg{revoked} by the issuing CA.
+\item CA adds revoked certificates to its
+\mg{certificate revocation list (CRL)}.
+\item CA publishes updated CRL
+\textasciitilde every 24 hours.
+\end{itemize}
 \end{frame}
 
 
@@ -215,11 +221,11 @@ revocation of certificates
 
 \begin{itemize}
 \item \mg{Blockchain}: a public, transparent,
-append-only ledger
+append-only ledger.
 %\pause
 \item Created by members of a peer-to-peer
-network
-\item Immutable and unforgeable records (\mg{blocks})
+network.
+\item Immutable and unforgeable records (\mg{blocks}).
 %Records \mg{blocks} stored in the ledger are immutable
 %and unforgeable
 %\item FunFactHere?
@@ -233,16 +239,16 @@ network
 
 \begin{itemize}
 \item \mg{Transaction}: atomic event
-allowed by the blockchain protocol (`Alice sends Bob $0.1$ BTC')
+allowed by the blockchain protocol (`Alice sends Bob $0.1$ BTC', `CA issues a certificate').
 \item Transactions are \mg{validated} and \mg{broadcast}
 throughout the network.
-\item Validated transactions
-stored in \mg{blocks}
-\item Blocks linked together,
-forming a \mg{chain}
+\item Validated transactions are
+stored in \mg{blocks}.
+\item Blocks are linked together,
+forming a \mg{chain}.
 \item The choice of the next blocks to be
 added to the chain is a result of a \mg{consensus
-process}
+process}.
 \end{itemize}
 
 \end{frame}
@@ -284,7 +290,9 @@ fill=white, label=below:{Genesis block}] (gb) {Block 0};
   \node[draw,rectangle,
 fill=white, right = of gb] (b1) {Block 1};
 
-  \node[right = of b1.east, label=below:{...}] (dots) {};
+%  \node[right = of b1.east, label=below:{{\color{white} XX}...{\color{white} XX}}] (dots) {};
+
+  \node[right = of b1.east] (dots) {{\color{white} X}$\ldots${\color{white} X}};
   
     \node[draw,rectangle,
 fill=white, right = of dots] (bl) {Block $n$};
