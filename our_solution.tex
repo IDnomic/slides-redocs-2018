@@ -1,6 +1,6 @@
-\section[Our solution]{Our solution}
+\section[Multichain-based certificate verification]{Multichain-based certificate management}
 \begin{frame}
-\frametitle{Our solution}
+\frametitle{Multichain-based certificate management}
 \begin{alertblock}{Multichain}
 	\begin{itemize}
 		\item fork of the Bitcoin source code
@@ -11,6 +11,37 @@
 		\item very well documented
 	\end{itemize}
 \end{alertblock}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Comparison}
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{Design}
+	\begin{center}
+		\begin{tikzpicture}
+		[node distance=1cm and 4cm]
+		\node[label=above:{CA}](CA) {{\LARGE \faUser}};
+		\pause
+		\draw[-] (CA) to (d3);
+		\node[below = of r.south] (d3) {sign};
+		\node[label=below:{Cert}, below = of d3.south] (cacert) {{\Huge \faFileTextO}};				\draw[->] (d3) to (cacert);
+		
+		\pause
+		
+		\node[right=of CA.east, label=above:{secure connection}](secure){};
+		\node[label=above:{Miner}, right = of secure.east](Miner){{\LARGE \faUser}};
+		\draw[->] (CA) to (Miner);
+		\pause
+		\draw[-] (Miner) to (d4);
+		\node[below = of r.south, below = of Miner.south] (d4) {produce};
+		\node[label=below:{Transaction}, below = of d4.south] (trans) {{\Huge \faFileTextO}};
+		\draw[->] (d4) to (trans);
+		
+		\end{tikzpicture}
+	\end{center}
 \end{frame}
 
 \begin{frame}

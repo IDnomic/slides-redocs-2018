@@ -1,7 +1,9 @@
-\section[Possible solutions]{Possible solutions}
+\section[Possible solutions]{Existing approaches}
 
 
-\begin{frame}{Possible solutions}
+%% TODO: move this slide to the Background section
+
+\begin{frame}{Smart contracts}
 
 	\begin{exampleblock}{Ethereum smart contracts\footnote{A. Yakubov et al., "A blockchain-based PKI management framework," NOMS 2018 - IEEE/IFIP Network Operations and Management Symposium, Taipei, 2018, pp. 1-6.}}
 		\begin{itemize}
@@ -13,30 +15,70 @@
 
 \end{frame}
 
-\begin{frame}{Possible solutions}
+
+
+\begin{frame}{Existing approaches}
+
+	\begin{exampleblock}{Ethereum smart contracts\footnote{A. Yakubov et al., "A blockchain-based PKI management framework," NOMS 2018 - IEEE/IFIP Network Operations and Management Symposium, Taipei, 2018, pp. 1-6.}}
+		\begin{itemize}
+			\item Based on the Ethereum blockchain
+			\item Each certification authority has \textbf{smart contracts} that store a list of issued certificates and a revocation list
+			\item Specific format for certificates: \textbf{hybrid certificates}
+		\end{itemize}
+	\end{exampleblock}
+
+\end{frame}
+
+\begin{frame}{Existing approaches}
 	\begin{exampleblock}{Data fields in Bitcoin-based blockchains}
 		\begin{itemize}
-			\item \textbf{OP\_RETURN} field that can contain data
+			\item Special \textbf{OP\_RETURN} field can contain arbitrary data
+			\begin{itemize}
+				\item Many applications, such as Intellectual Property
+			\end{itemize}
+			\item Bitcoins: maximum size of 80 bytes
 			\item Several blockchains could be used, such as Bitcoin or Namecoin
 		\end{itemize}
 	\end{exampleblock}
 \end{frame}
-	
-\begin{frame}{Possible solutions}
-	\begin{exampleblock}{New blockchain}
-		\begin{itemize}
-			\item Creation of a new blockchain with the \textbf{Multichain} tool
-		\end{itemize}
-	\end{exampleblock}
+
+
+
+%% TODO: move this slide to the next section
+
+\begin{frame}{Comparison}
+
+\begin{tabular}{|c|c|c|c|}
+\hline 
+  & Smart contracts & OP\_RETURN & Multichain \\ 
+\hline 
+Usability - customization & - & - & + \\ 
+\hline 
+Cost & - & - & + \\ 
+\hline 
+Compatibility with existing PKIs & - & + & + \\ 
+\hline 
+Permissions & - & - & + \\ 
+\hline 
+Size of certificates & + & - & + \\ 
+\hline 
+Scalability & + & - & - \\ 
+\hline 
+\end{tabular} 
+
 \end{frame}
 
-\begin{frame}{Pros and cons}
 
-list ? table ?
-%\emph{figure to add ?}
-%\emph{citation to add }
-%https://ieeexplore.ieee.org/document/8406325
-\end{frame}
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -51,9 +93,6 @@ list ? table ?
 %	\end{exampleblock}
 %
 %\end{frame}
-
-
-
 
 %\begin{frame}
 %
@@ -83,10 +122,6 @@ list ? table ?
 %
 %
 %
-%
-%
-%
-%
 %\begin{frame}{Data fields in Bitcoin-based blockchains}
 %
 %\begin{itemize}
@@ -111,9 +146,7 @@ list ? table ?
 %
 %\end{frame}
 %
-%
-%
-%
+
 %
 %\begin{frame}{New blockchain}
 %\emph{here we describe the main points of our solution}
