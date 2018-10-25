@@ -1,68 +1,132 @@
 \section[PKI and blockchains]{Background on public key infrastructure (PKI) and blockchains}
 
+\begin{frame}{Public-key encryption}
+public key encryption
+\end{frame}
+
 \begin{frame}{Public key infrastructure}
-A \mg{public key infrastructure (PKI)} is a set of roles, policies, and procedures needed to create, manage, distribute, use, store, and revoke digital certificates and manage public-key encryption.
 
-\vspace{2mm}
-
-PKI involves
 \begin{itemize}
-\item public key cryptography,
-\item digital certificates,
-\item digital identity management.
+\item \mg{Public key infrastructure (PKI)}: a set of roles, policies, and procedures needed to
+%create, manage, distribute, use, store, and revoke
+%digital certificates and manage public-key encryption.
+ensure
+secure distribution of public keys
+\item Based on digital certificates
 \end{itemize}
 
+
+%'digital certificate = signature
+%binding an entity to some public key'
+
+%\vspace{2mm}
+%
+%PKI involves
+%\begin{itemize}
+%\item public key cryptography,
+%\item digital certificates,
+%\item digital identity management.
+%\end{itemize}
+
 \end{frame}
 
 
-\begin{frame}{Public key infrastructure}
-\begin{figure}[t]
-\begin{tikzpicture}
-\node[draw,rectangle,
-inner xsep=1cm,inner ysep=1cm,
-fill=white](user) at (-30,0){};
-
-\node[] (fake) at (-28,0){};
-
-\node[draw,rectangle,
-fill=white](ca) at (-28,2){Certificate authority (CA)};
-
-\node[draw,rectangle,
-inner xsep=1cm,inner ysep=1cm,
-fill=yellow](cert) at (-26,0){};
-
-\node[draw,rectangle,
-inner xsep=1cm,inner ysep=1cm,
-fill=green](repo) at (-22,0){};
-
-
-\draw [->] (user) to (cert);
-\draw [->] (cert) to (repo);
-\draw [->] (ca) to (fake);
+\begin{frame}{Digital certificate}
+%based on https://tex.stackexchange.com/a/8935
+\begin{center}
+\begin{tikzpicture}[mymatrix/.style={matrix of nodes, nodes=typetag, row sep=1em},
+  mycontainer/.style={draw=gray, inner sep=1ex},
+  typetag/.style={draw=gray, inner sep=1ex, anchor=west},
+  title/.style={draw=none, color=gray, inner sep=0pt}
+  ]
+  \matrix[mymatrix] (user) {
+    |[title]|Entity's data (ED)\\
+    unique identifier\\
+    public key $\mathtt{pk}_{\mathtt{E}}$ \\
+    ... \\
+  };
+  
+  \node[right=of user.east] (fake) {};
+  
+  \node[above = of fake] (fakeN) {$\mathtt{sk}_{\mathtt{CA}}$};
+  
+  \node[draw,rectangle,
+fill=white, above = of fakeN](ca) {Certificate authority (CA)};
+  
+    \matrix[mymatrix, right=of fake.east, matrix anchor=west] (cert) {
+    |[title]|Digital certificate\\
+    CA's identifier\\
+    $\mathtt{Sign}_{\mathtt{sk}_{\mathtt{CA}}}($ED$)$\\
+    ...\\
+  };
+  
+  \node[mycontainer, fit=(user)] {};
+  \node[mycontainer, fit=(cert)] {};
+  \draw [->] (user) to (cert);
+  \draw [-] (ca) to (fakeN);
+  \draw [->] (fakeN) to (fake);
+  
 \end{tikzpicture}
-\end{figure}
-
-a figure to be placed here, based on IDNOMIC's page 6
+\end{center}
+\pause
+\begin{center}
+CA certifies: $\mathtt{pk}_{\mathtt{E}}$
+is indeed the public key of the entity
+\end{center}
 \end{frame}
+
+
+%\begin{frame}{Public key infrastructure}
+%\begin{figure}[t]
+%\begin{tikzpicture}
+%\node[draw,rectangle,
+%inner xsep=1cm,inner ysep=1cm,
+%label=below:{entity's data},
+%fill=white](user) at (-30,0){};
+%
+%\node[] (fake) at (-28,0){};
+%
+%\node[draw,rectangle,
+%fill=white](ca) at (-28,2){Certificate authority (CA)};
+%
+%\node[draw,rectangle,
+%inner xsep=1cm,inner ysep=1cm,
+%label=below:{digital certificate},
+%fill=yellow](cert) at (-26,0){};
+%
+%\node[draw,rectangle,
+%inner xsep=1cm,inner ysep=1cm,
+%fill=green](repo) at (-22,0){};
+%
+%
+%\draw [->] (user) to (cert);
+%\draw [->] (cert) to (repo);
+%\draw [->] (ca) to (fake);
+%\end{tikzpicture}
+%\end{figure}
+%
+%a figure to be placed here, based on IDNOMIC's page 6
+%\end{frame}
 
 
 \begin{frame}{Public key infrastructure}
 
-certificates, chain of trust
+chain of trust, revocation of certificates
 
 \end{frame}
 
 \begin{frame}{Blockchain definition}
 
 \begin{itemize}
-\item A \mg{blockchain} is a public, transparent,
+\item \mg{Blockchain}: a public, transparent,
 append-only ledger
 %\pause
-\item Records stored in the ledger are immutable
-and unforgeable
 \item Created by members of a peer-to-peer
 network
-\item FunFact
+\item Immutable and unforgeable records (\mg{blocks})
+%Records \mg{blocks} stored in the ledger are immutable
+%and unforgeable
+\item FunFactHere?
 \end{itemize}
 
 \end{frame}
@@ -72,14 +136,90 @@ network
 \begin{frame}{Blockchain structure}
 
 \begin{itemize}
-\item ssss
-\item transactions are validated and broadcast
-\item multiple validated transactions
-constitute a block, blocks are linked together,
-forming a chain
-\item the choice of the next blocks to be
-added to the chain is a result of a consensus
-process
+\item \mg{Transaction}: atomic event
+allowed by the blockchain protocol (`Alice sends Bob $0.1$ BTC')
+\item Transactions are \mg{validated} and \mg{broadcast}
+throughout the network.
+\item Validated transactions
+stored in \mg{blocks}
+\item Blocks linked together,
+forming a \mg{chain}
+\item The choice of the next blocks to be
+added to the chain is a result of a \mg{consensus
+process}
 \end{itemize}
+
+\end{frame}
+
+\begin{frame}{Blockchain structure}
+
+\begin{center}
+\begin{tikzpicture}[mymatrix/.style={matrix of nodes, nodes=typetag, row sep=1em},
+  mycontainer/.style={draw=gray, inner sep=1ex},
+  typetag/.style={draw=gray, inner sep=1ex, anchor=west},
+  title/.style={draw=none, color=gray, inner sep=0pt}
+  ]
+  \matrix[mymatrix] (block) {
+    |[title]|Block\\
+    hash of the last block\\
+    creator's of the block (\mg{miner}) ID\\
+    set of transactions\\
+    ...\\
+  };
+  
+  
+  \node[mycontainer, fit=(block)] {};
+  
+\end{tikzpicture}
+\end{center}
+
+\end{frame}
+
+
+\begin{frame}{Blockchain structure}
+
+\begin{center}
+\begin{tikzpicture}
+
+  \node[draw,rectangle,
+fill=white, label=below:{Genesis block}](gb) {Block 0};
+
+  \node[draw,rectangle,
+fill=white, right = of gb](b1) {Block 1};
+
+  \node[right = of block.east, label=below:{...}] (dots) {};
+  
+    \node[draw,rectangle,
+fill=white, right = of dots](bl) {Block $n$};
+
+  \node[right = of bl.east] (dummy) {};
+  
+%  \node[above = of dummy.north] (dummy2) {};
+%  
+%  \node[below = of dummy.north] (dummy3) {};
+  
+%   \node[draw,rectangle,
+%fill=white, right = of dummy2](nb1) {Block?};
+%
+%   \node[draw,rectangle,
+%fill=white, right = of dummy3](nb2) {Block???};
+
+   \node[draw,rectangle,
+fill=white, right = of bl.north east](nb1) {Block?};
+
+   \node[draw,rectangle,
+fill=white, right = of bl.south east](nb2) {Block???};
+  
+  
+  \draw [->] (gb) to (b1);
+  \draw [->] (b1) to (dots);
+  \draw [->] (dots) to (bl);
+  \draw [->] (bl) to (nb1);
+  \draw [->] (bl) to (nb2);
+  
+\end{tikzpicture}
+\end{center}
+
+ugly
 
 \end{frame}
