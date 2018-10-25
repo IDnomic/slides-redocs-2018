@@ -134,10 +134,16 @@ secure distribution of public keys
 
 \node[left = of int.north west, label=left:{{\color{olivegreen} reference}}] (sign) {};
 
+\node[left = of root.west, label=below: {{\color{blue} self-sign}}] {};
+
 %\node[left = of end.west]
 %{{\color{darkviolet} sign}};
 %
 %\node[below = of int.south east, label=below:{{\color{darkviolet} sign}}] (sign) {};
+
+% root to root
+% root to int      
+\draw[->,line width=1pt,blue, bend right] (root.west) to (root.south west);
 
 % root to int      
 \draw[->,line width=1pt,darkviolet, bend left] (root.south east) to (int.north east);
@@ -190,7 +196,7 @@ fill=white, above = of fakeN](ca) {Certificate authority (CA)};
   
 \end{tikzpicture}
 \end{center}
-\pause
+
 \begin{center}
 CA certifies: $\mathtt{pk}_{\mathtt{E}}$
 is indeed the public key of the entity
@@ -241,6 +247,7 @@ process}
 
 \end{frame}
 
+
 \begin{frame}{Blockchain structure}
 
 \begin{center}
@@ -272,33 +279,32 @@ process}
 \begin{tikzpicture}
 
   \node[draw,rectangle,
-fill=white, label=below:{Genesis block}](gb) {Block 0};
+fill=white, label=below:{Genesis block}] (gb) {Block 0};
 
   \node[draw,rectangle,
-fill=white, right = of gb](b1) {Block 1};
+fill=white, right = of gb] (b1) {Block 1};
 
-  \node[right = of block.east, label=below:{...}] (dots) {};
+  \node[right = of b1.east, label=below:{...}] (dots) {};
   
     \node[draw,rectangle,
-fill=white, right = of dots](bl) {Block $n$};
+fill=white, right = of dots] (bl) {Block $n$};
 
   \node[right = of bl.east] (dummy) {};
   
-%  \node[above = of dummy.north] (dummy2) {};
+  \node[above = of dummy.north] (dummy2) {};
 %  
-%  \node[below = of dummy.north] (dummy3) {};
+ \node[below = of dummy.north] (dummy3) {};
   
+\node[draw,rectangle,
+fill=white, right = of dummy2] (nb1) {Block?};
+
+\node[draw,rectangle,fill=white, right = of dummy3] (nb2) {Block???};
+
 %   \node[draw,rectangle,
-%fill=white, right = of dummy2](nb1) {Block?};
+%fill=white, right = of bl.north east](nb1) {Block?};
 %
 %   \node[draw,rectangle,
-%fill=white, right = of dummy3](nb2) {Block???};
-
-   \node[draw,rectangle,
-fill=white, right = of bl.north east](nb1) {Block?};
-
-   \node[draw,rectangle,
-fill=white, right = of bl.south east](nb2) {Block???};
+%fill=white, right = of bl.south east](nb2) {Block???};
   
   
   \draw [->] (gb) to (b1);
@@ -310,6 +316,13 @@ fill=white, right = of bl.south east](nb2) {Block???};
 \end{tikzpicture}
 \end{center}
 
-ugly, to be modified
+\begin{itemize}
+\item sasa
+\item sese
+\item bzzz
+\end{itemize}
 
 \end{frame}
+
+
+
