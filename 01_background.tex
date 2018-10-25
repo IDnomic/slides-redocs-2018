@@ -243,15 +243,16 @@ is indeed the public key of the entity E.
 \end{frame}
 
 
-\begin{frame}{Blockchain definition}
+\begin{frame}{Blockchain}
 
+\begin{exampleblock}{Blockchain}
 \begin{itemize}
-\item \mg{Blockchain}: a public, transparent,
+\item A public, transparent,
 append-only ledger.
 %\pause
 \item Created by members of a peer-to-peer
 network.
-\item Immutable and unforgeable records (\mg{blocks}).
+\item Immutable and unforgeable records (\textbf{blocks}).
 %Records \mg{blocks} stored in the ledger are immutable
 %and unforgeable
 %\item FunFactHere?
@@ -261,21 +262,22 @@ network.
 
 
 
-\begin{frame}{Blockchain structure}
+\begin{frame}{Blockchain}
 
+\begin{exampleblock}{Structure}
 \begin{itemize}
-\item \mg{Transaction}: atomic event
+\item \textbf{Transaction}: atomic event
 allowed by the blockchain protocol (`Alice sends Bob $0.1$ BTC', `CA issues a certificate').
-\item Transactions are \mg{validated} and \mg{broadcasted}
+\item Transactions are \textbf{validated} and \textbf{broadcasted}
 throughout the network.
 \item Validated transactions are
-stored in \mg{blocks}.
+stored in \textbf{blocks}.
 \item Blocks are linked together,
-forming a \mg{chain}.
+forming a \textbf{chain}.
 \item The choice of the next blocks to be
-added to the chain is a result of a \mg{consensus
-process}.
+added to the chain is a result of a \textbf{consensus process}.
 \end{itemize}
+\end{exampleblock}
 
 \end{frame}
 
@@ -313,6 +315,9 @@ process}.
   
   \draw[-] (dummy) to (up.east);
   \draw[-] (up.east) to (down.east);
+  
+  \node[left = of dummy2.west] (duml) {};
+  
   
 % RHS
   \node[below = of block.north east] (dummy3) {};
