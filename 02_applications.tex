@@ -1,102 +1,55 @@
 \section[Blockchains for PKI]{How blockchains could enhancing PKI}
 
-
 \begin{frame}{Blockchain and Man-in-the-middle attacks}
-\begin{itemize}
-\item False certification authorities
-\item Hack of genuine certification authorities
-\vspace{2mm}
-\item Blockchain: \mg{transparency} and \mg{traceability}
-\begin{itemize}
-\item Secure distributed log that cannot be altered
-\item The whole chain of trust is stored
-\end{itemize}
-\end{itemize}
+	\begin{alertblock}{Attacks}
+		\begin{itemize}
+			\item Hack of genuine certification authorities
+			\item CA producing certificates for domains they don't own (Iran with Google)
+		\end{itemize}
+	\end{alertblock}
+
+	\begin{exampleblock}{Blockchain}
+		\begin{itemize}
+			\item \mg{transparency} and \mg{traceability}
+			\item Secure distributed log that cannot be altered
+			\item The whole chain of trust is stored
+		\end{itemize}
+	\end{exampleblock}
 \end{frame}
 
 \begin{frame}{Blockchain and Certificate Revocation Lists}
-\begin{itemize}
-\item Updated periodically but not instantly
-\item Separate process to check CRLs for end users: adds delays, and is not performed at all by some web browsers
-\vspace{2mm}
-\item Blockchain: \mg{Faster} and \mg{more secure} verification of revocations
-\begin{itemize}
-\item CRLs are updated instantaneously
-\item All CRLs stored at the same place
-\item CRLs checked together with certificates in one single query
-\end{itemize}
-\end{itemize}
+	\begin{alertblock}{Current issues}
+		\begin{itemize}
+%			\item Updated periodically but not instantly
+			\item Separated process to check CRLs for end users: adds delays, and is not performed at all by some web browsers
+		\end{itemize}
+	\end{alertblock}
+
+	\begin{exampleblock}{Blockchain solution}
+%		\mg{Faster} and \mg{more secure} verification of revocations
+		\begin{itemize}
+%			\item CRLs are updated instantaneously
+			\item All CRLs stored at the same place
+			\item CRLs checked together with certificates in one single query
+		\end{itemize}
+	\end{exampleblock}
 \end{frame}
-
-
-
-%\begin{itemize}
-%\item Man-in-the-middle \emph{(MITM)} attacks with false certificate authorities
-%%\begin{itemize}
-%%\item Some have been performed by states (Iran, China) or intelligence agencies (NSA)
-%%\end{itemize}
-%\item Hack of genuine certificates authorities
-%%\begin{itemize}
-%%\item False certificates were issued
-%%\end{itemize}
-%\item Revoked certificates constitute a weakness
-%\begin{itemize}
-%\item Certificate revocation lists \emph{(CRLs)} are updated periodically, but not instantly when certificates are proved to be forged
-%\item Checking the Certificate revocation lists \emph{(CRLs)} is a separate process that adds more queries and delays
-%\item This process is not performed at all by some web browsers
-%\end{itemize}
-%\end{itemize}
-%
-%%https://www.eff.org/fr/deeplinks/2011/08/iranian-man-middle-attack-against-google
-%%https://www.techdirt.com/articles/20140909/03424628458/china-using-man-in-the-middle-attack-against-google.shtml
-%%https://www.netresec.com/?page=Blog&month=2014-09&post=Analysis-of-Chinese-MITM-on-Google
-%%https://ieeexplore.ieee.org/document/6096548
-%%http://www.ccs.neu.edu/home/amislove/publications/SSLClient-IMC.pdf
-%
-%\end{frame}
-
-
-
-
-
-%\begin{frame}
-%\emph{Blockchain has many advantages for PKIs}
-%
-%\begin{itemize}
-%\item \mg{Security} with more \mg{transparency} and \mg{traceability}
-%\begin{itemize}
-%\item Blockchain is a secure distributed log that cannot be altered
-%\item The whole chain of trust is stored in the blockchain
-%\item MITM attacks are prevented
-%\end{itemize}
-%\item \mg{Faster} and \mg{more secure} verification of revocations
-%\begin{itemize}
-%\item CRLs are updated instantaneously in the blockchain
-%\item All CRLs for all CAs are stored at the same place
-%\item One query to check both certificates and the CRL, which is always performed
-%\end{itemize}
-%\end{itemize}
-%
-%\end{frame}
-
-
-
-
 
 \begin{frame}{Examples of applications of blockchains to PKIs}
 
-\begin{itemize}
-\item Trusted domain names
-\begin{itemize}
-\item Privacy and confidentiality issue: are visited websites what they pretend to be ?
-\item Millions of certificates, with variable lifetime
-\end{itemize}
-\item Trusted connected cars
-\begin{itemize}
-\item Safety issue: connected or even autonomous cars might need to check that the surrounding cars are legitimate
-\item Thousands of certificates, with a one-week lifetime
-\end{itemize}
-\end{itemize}
+	\begin{exampleblock}{Trusted domain names}
+		\begin{itemize}
+			\item Privacy and confidentiality issue: are visited websites what they pretend to be ?
+			\item Millions of certificates, with variable lifetime
+		\end{itemize}
+	\end{exampleblock}
+	
+	\begin{alertblock}{Trusted connected cars}
+		\begin{itemize}
+			\item Safety issue: connected or even autonomous cars might need to check that the surrounding cars are legitimate
+			\item Thousands of certificates, with a one-week lifetime
+		\end{itemize}
+	\end{alertblock}
 
 %\emph{In both cases, all certificates and CRLs would be stocked together in a blockchain.}
 
