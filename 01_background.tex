@@ -92,7 +92,8 @@ secure distribution of public keys
 
 
 \begin{frame}{Chain of trust}
-\scalebox{0.9}{
+\begin{center}
+%\scalebox{0.9}{
 \begin{tikzpicture}
 
 \node (root) [shape=rectangle,draw,label=above:{Root CA}] {
@@ -128,12 +129,27 @@ secure distribution of public keys
                 Issuer's signature\\
             \end{tabular}
         };        
-        
-\draw[->] (root.south east) to (int.north east);
+
+\node[right = of root.south east, label=right:{{\color{darkviolet} sign}}] (sign) {};
+
+\node[left = of int.north west, label=left:{{\color{olivegreen} reference}}] (sign) {};
+
+%\node[left = of end.west]
+%{{\color{darkviolet} sign}};
+%
+%\node[below = of int.south east, label=below:{{\color{darkviolet} sign}}] (sign) {};
+
+% root to int      
+\draw[->,line width=1pt,darkviolet, bend left] (root.south east) to (int.north east);
+\draw[->,olivegreen,line width=1pt, bend left] (int.north west) to (root.south west);
+
+% int to end
+\draw[->,line width=1pt,darkviolet, bend left] (int.south east) to (end.north west);
+\draw[->,olivegreen,line width=1pt, bend left] (end.south west) to (int.south west);
 
 \end{tikzpicture}
-} %scalebox ends here
-
+%} %scalebox ends here
+\end{center}
 \end{frame}
 
 
@@ -182,46 +198,7 @@ is indeed the public key of the entity
 \end{frame}
 
 
-%\begin{frame}{Chain of trust}
-
-%\begin{tikzpicture}
-%\node[\draw  (-6,6) rectangle (-2,2)] {no elo};
-%\draw (-6,5) -- (-2,5) -- (-2,4) -- (-6,4) -- (-6,3) -- (-2,3);
-%\node at (-5.5,5.5) {};
-%\end{tikzpicture}
-
-%\begin{center}
-%\begin{tikzpicture}[mymatrix/.style={matrix of nodes, nodes=typetag, row sep=1em},
-%  mycontainer/.style={draw=gray, inner sep=1ex},
-%  typetag/.style={draw=gray, inner sep=1ex, anchor=west},
-%  title/.style={draw=none, color=gray, inner sep=0pt}
-%  ]
-%  \matrix[mymatrix] (user) {
-%    |[title]|Root CA\\
-%    Root CA's name\\
-%    Root CA's public key\\
-%    Root CA's signature\\
-%  };
-%  
-%    \matrix[mymatrix, right=of fake.east, matrix anchor=west] (cert) {
-%    |[title]|Root CA\\
-%    Root CA's name\\
-%    Root CA's public key\\
-%    Root CA's signature\\
-%  };
-%  
-%  \node[mycontainer, fit=(user)] {};
-%  \node[mycontainer, fit=(cert)] {};
-%  
-%\end{tikzpicture}
-%\end{center}
-%\end{frame}
-
-
-
-
-
-\begin{frame}
+\begin{frame}{Revocation of certificates}
 
 revocation of certificates
 
@@ -239,7 +216,7 @@ network
 \item Immutable and unforgeable records (\mg{blocks})
 %Records \mg{blocks} stored in the ledger are immutable
 %and unforgeable
-\item FunFactHere?
+%\item FunFactHere?
 \end{itemize}
 
 \end{frame}
