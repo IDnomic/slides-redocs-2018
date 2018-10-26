@@ -13,8 +13,28 @@
 \end{alertblock}
 \end{frame}
 
-\begin{frame}
-	\frametitle{Comparison}
+%% TODO: move this slide to the next section
+
+\begin{frame}{Comparison}
+
+\begin{tabular}{|c|c|c|c|}
+\hline 
+  & Smart contracts & OP\_RETURN & Multichain \\ 
+\hline 
+Usability - customization & - & - & + \\ 
+\hline 
+Cost & - & - & + \\ 
+\hline 
+Compatibility with existing PKIs & - & + & + \\ 
+\hline 
+Permissions & - & - & + \\ 
+\hline 
+Size of certificates & + & - & + \\ 
+\hline 
+Scalability & + & - & - \\ 
+\hline 
+\end{tabular} 
+
 \end{frame}
 
 
@@ -56,4 +76,30 @@
 			\item displays whether certificates should be trusted or not
 		\end{enumerate}
 	\end{alertblock}
+\end{frame}
+
+%% TODO: move this slide to another section
+
+\begin{frame}{Cost and scalability}
+
+	\begin{exampleblock}{Use case: Let's Encrypt}
+		\begin{itemize}
+			\item Certification authority
+			\item Delivered 100M certificates over 20 months
+			\begin{itemize}
+				\item More than 160K per day
+			\end{itemize}
+		\end{itemize}
+	\end{exampleblock}
+	
+	\begin{exampleblock}{Application to multichain-based certificates management}
+		\begin{itemize}
+			\item Around 280 Go of memory for 100M certificates
+			\item The whole blockchain has to be read when searching for a specific certificate
+			\begin{itemize}
+				\item Ideally, nly the delivery day would have to be checked in the blockchain
+			\end{itemize}
+		\end{itemize}
+	\end{exampleblock}
+
 \end{frame}
